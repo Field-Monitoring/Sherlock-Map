@@ -16,22 +16,19 @@ class MapViewController: UIViewController {
     var address: String?
     var mapContent : String?
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 
     
     override func loadView() {
         // Create a GMSCameraPosition that tells the map to display the
         // coordinate -33.86,151.20 at zoom level 6.
-        
         let camera = GMSCameraPosition.camera(withLatitude: lat!, longitude: long!, zoom: 12.0)
         let mapView = GMSMapView.map(withFrame: CGRect.zero, camera: camera)
         view = mapView
@@ -43,5 +40,4 @@ class MapViewController: UIViewController {
         marker.snippet = mapContent
         marker.map = mapView
     }
-    
-   }
+}

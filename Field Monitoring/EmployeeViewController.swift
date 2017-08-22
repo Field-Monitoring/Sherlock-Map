@@ -13,6 +13,8 @@ import Alamofire
 
 class EmployeeViewController: UIViewController,CLLocationManagerDelegate  {
     let manager = CLLocationManager()
+    var jobList: Array<Any> = []
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,26 +27,20 @@ class EmployeeViewController: UIViewController,CLLocationManagerDelegate  {
         super.didReceiveMemoryWarning()
     }
     
-    
-    
-    
+
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation])
     {
         if let location = locations.first{
-            print("User's Location: \(location)")
-            print ("\n\nBelow")
+//            print("User's Location: \(location)")
+//            print ("\n\nBelow")
 //            let latitude = Double(location.coordinate.latitude)
 //            let longitude = Double(location.coordinate.longitude)
-            
+//            print (latitude, longitude)
             let latitude = 13.1509828
             let longitude = 80.2450685
-            
-            print (latitude, longitude)
-            
             var urlPath :String = "https://field-monitoring.herokuapp.com/users/getbylocation/" + String(latitude) + "/"
             urlPath += String(longitude)
-
-            print (urlPath)
+//            print (urlPath)
             
             Alamofire.request(urlPath, method: .get, encoding: JSONEncoding.default, headers: [:])
                 .responseJSON { response in
@@ -52,17 +48,10 @@ class EmployeeViewController: UIViewController,CLLocationManagerDelegate  {
                         print("Error while fetching colors: \(String(describing: response.result.error))")
                         return
                     }
-//                    print (response.result.value!)
-                    
-                    guard let responseJSON = response.result.value as? [Any]?,
-                    let item = responseJSON?.first as? [String: Any],
-                    let skills = item["skills"] else { return }
-                    print (responseJSON)
-                    print("\n\n")
-                    print(item)
-                    print("\n\n\n\n SKILLS")
-                    print(skills)
-                    
+                    guard let responseJSON = response.result.value as? [Any]? else { return }
+                    self.jobList = responseJSON!
+                    //print (self.jobList)
+                    self.performSegue(withIdentifier: "sendJobs", sender: self)
             }
         }
     }
@@ -72,5 +61,10 @@ class EmployeeViewController: UIViewController,CLLocationManagerDelegate  {
         print("Failed")
     }
     
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let nextViewController = segue.destination as! JobsViewController
+        nextViewController.jobsList = jobList
+    }
     
 }

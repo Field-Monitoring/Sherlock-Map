@@ -13,14 +13,13 @@ class ManagerViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
     }
 
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
+    
     
     var latitude = 0.0
     var longitude = 0.0
@@ -37,8 +36,8 @@ class ManagerViewController: UIViewController {
     
     @IBOutlet var jobLocation: UITextField!
     
+    
     @IBAction func assignJob(_ sender: Any) {
-        
         let jobTitleValue = taskTitle.text
         let skillValue = skills.text
         let experienceValue = experience.text
@@ -61,35 +60,29 @@ class ManagerViewController: UIViewController {
                 let status = responseJSON["message"],
                 let latitiude = responseJSON["latitude"],
                 let address = responseJSON["address"],
-//                let salary = responseJSON["salary"],
                 let longitude = responseJSON["longitude"] else {return}
                 
                 self.latitude = Double(latitiude)!
                 self.longitude = Double(longitude)!
                 self.address = address
-//                self.sal = salary
                
                 if (status == "success"){
                     self.performSegue(withIdentifier:"mapSegue", sender: self)
                 }
-                
-        }
-        
-        
+            }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let nextViewController = segue.destination as! MapViewController
-        print("\n\n\n Lat-Long")
-        print (latitude, longitude)
-        nextViewController.lat = latitude
-        nextViewController.long = longitude
-        nextViewController.address = address
-//        nextViewController.salary = sal
-        nextViewController.mapContent = mapContent
+        let mapViewController = segue.destination as! MapViewController
+        //print("\n\n\n Lat-Long")
+        //print (latitude, longitude)
+        mapViewController.lat = latitude
+        mapViewController.long = longitude
+        mapViewController.address = address
+        mapViewController.mapContent = mapContent
     }
     
-    }
+}
 
    
 

@@ -15,27 +15,26 @@ class ViewController: UIViewController {
     @IBOutlet weak var password: UITextField!
     @IBOutlet weak var secondaryView: UIView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
-    
     @IBOutlet var mainView: UIView!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         activityIndicator.stopAnimating()
-        
         secondaryView.layer.cornerRadius = 20;
        
     }
 
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        
     }
 
+    
     @IBAction func login_Button(_ sender: Any) {
         activityIndicator.startAnimating()
         let emailValue = email.text
         let passwordValue = password.text
-        
         let parameters = ["email" : emailValue, "password" : passwordValue ]
         let urlPath :String = "https://field-monitoring.herokuapp.com/users/login"
         
@@ -45,21 +44,20 @@ class ViewController: UIViewController {
                     print("Error while fetching colors: \(String(describing: response.result.error))")
                     return
                 }
-                print(response.result.value!)
+//                print(response.result.value!)
                 guard let responseJSON = response.result.value as? [String: String],
                     let position = responseJSON["position"],
                     let status = responseJSON["message"] else { return }
 //                    print (responseJSON)
-//                    print (results)
                 
                 if ( status == "success"){
                     if position == "manager" {
-                        print ("Manager Success")
+                        //print ("Manager Success")
                         self.performSegue(withIdentifier:"managerLogin", sender: self)
                         self.activityIndicator.stopAnimating()
                     }
                     else if position == "employee"{
-                        print ("Employee Success")
+                        //print ("Employee Success")
                         self.performSegue(withIdentifier:"jobSegue", sender: self)
                         self.activityIndicator.stopAnimating()
                     }

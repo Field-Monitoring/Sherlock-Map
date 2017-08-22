@@ -256,12 +256,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Y5w-nh-hH4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="941" y="642"/>
+            <point key="canvasLocation" x="940.57971014492762" y="641.57608695652175"/>
         </scene>
-        <!--View Controller-->
+        <!--Jobs View Controller-->
         <scene sceneID="nAf-3g-ZBM">
             <objects>
-                <viewController id="Wgc-yu-OGx" sceneMemberID="viewController">
+                <viewController id="Wgc-yu-OGx" customClass="JobsViewController" customModule="Field_Monitoring" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="xV9-sT-M0S"/>
                         <viewControllerLayoutGuide type="bottom" id="N4g-3v-WeG"/>
