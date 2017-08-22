@@ -34,9 +34,13 @@ class EmployeeViewController: UIViewController,CLLocationManagerDelegate  {
     // Print out the location to the console
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if let location = locations.first {
-            let lat = location.coordinate.latitude
-            let long = location.coordinate.longitude
+            var lat = 0.0, long = 0.0
+            lat = location.coordinate.latitude
+            long = location.coordinate.longitude
             print(lat, long)
+            if (lat != 0.0 && long != 0.0){
+                
+            }
         }
     }
     

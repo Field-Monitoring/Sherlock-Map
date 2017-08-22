@@ -47,7 +47,8 @@ class ManagerViewController: UIViewController {
         let urlPath :String = "https://field-monitoring.herokuapp.com/users/postjob/"
         let parametersValue = ["jobTitle" : jobTitleValue, "salary" : salaryValue, "experience" : experienceValue, "address" : jobLoc, "skills" : skillValue]
         
-        self.mapContent = "Job: " + jobTitleValue + "\n" + "Skills: " + skillValue + "\n" + "Experience: " + experienceValue + "\n" + "Salary : " + salaryValue
+        self.mapContent = "Job: " + jobTitleValue! + "\nSkills: " + skillValue!
+        self.mapContent +=  "\nExperience: " + experienceValue! + "\nSalary : " + salaryValue!
         
         Alamofire.request(urlPath, method: .post, parameters: parametersValue, encoding: JSONEncoding.default, headers: [:])
             .responseJSON { response in
