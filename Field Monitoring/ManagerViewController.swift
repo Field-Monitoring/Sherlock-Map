@@ -80,6 +80,8 @@ class ManagerViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let nextViewController = segue.destination as! MapViewController
+        print("\n\n\n Lat-Long")
+        print (latitude, longitude)
         nextViewController.lat = latitude
         nextViewController.long = longitude
         nextViewController.address = address
