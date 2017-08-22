@@ -22,6 +22,7 @@
 		9A64F3011F075ACC00BE4A42 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A64F2FF1F075ACC00BE4A42 /* LaunchScreen.storyboard */; };
 		9A64F30B1F07762200BE4A42 /* ManagerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A64F30A1F07762200BE4A42 /* ManagerViewController.swift */; };
 		9A64F30D1F07780400BE4A42 /* EmployeeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A64F30C1F07780400BE4A42 /* EmployeeViewController.swift */; };
+		9AA960991F4C25DA004CA903 /* JobsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AA960981F4C25DA004CA903 /* JobsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,6 +44,7 @@
 		9A64F3021F075ACC00BE4A42 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9A64F30A1F07762200BE4A42 /* ManagerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManagerViewController.swift; sourceTree = "<group>"; };
 		9A64F30C1F07780400BE4A42 /* EmployeeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmployeeViewController.swift; sourceTree = "<group>"; };
+		9AA960981F4C25DA004CA903 /* JobsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JobsViewController.swift; sourceTree = "<group>"; };
 		D327B0B08DD52BC3A92BCA27 /* Pods-Field Monitoring.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Field Monitoring.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Field Monitoring/Pods-Field Monitoring.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -111,6 +113,7 @@
 				9A64F2FF1F075ACC00BE4A42 /* LaunchScreen.storyboard */,
 				9A64F3021F075ACC00BE4A42 /* Info.plist */,
 				9A447F5F1F4A8CF2007E1798 /* download.png */,
+				9AA960981F4C25DA004CA903 /* JobsViewController.swift */,
 			);
 			path = "Field Monitoring";
 			sourceTree = "<group>";
@@ -248,6 +251,7 @@
 				9A64F30D1F07780400BE4A42 /* EmployeeViewController.swift in Sources */,
 				594603DE1F2163C800749FDE /* MapViewController.swift in Sources */,
 				594603E41F21721200749FDE /* CoordinatesViewController.swift in Sources */,
+				9AA960991F4C25DA004CA903 /* JobsViewController.swift in Sources */,
 				9A64F2F71F075ACC00BE4A42 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

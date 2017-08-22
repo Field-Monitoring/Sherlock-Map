@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreLocation
+import Alamofire
 
 class EmployeeViewController: UIViewController,CLLocationManagerDelegate  {
     
@@ -31,6 +32,13 @@ class EmployeeViewController: UIViewController,CLLocationManagerDelegate  {
         
     }
     
+    
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+    }
+    
+    
     // Print out the location to the console
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if let location = locations.first {
@@ -38,15 +46,30 @@ class EmployeeViewController: UIViewController,CLLocationManagerDelegate  {
             lat = location.coordinate.latitude
             long = location.coordinate.longitude
             print(lat, long)
+            
+            var urlPath :String = "https://field-monitoring.herokuapp.com/users/getbylocation/"
+            
             if (lat != 0.0 && long != 0.0){
+                urlPath += String(lat) + "/" + String(long)
                 
+                Alamofire.request(urlPath, method: .post, encoding: JSONEncoding.default, headers: [:])
+                    .responseJSON { response in
+                        guard response.result.isSuccess else {
+                            print("Error while fetching colors: \(String(describing: response.result.error))")
+                            return
+                        }
+//                        guard let responseJSON = response.result.value as? [String: Any],
+                        
+                        
+//                        if (status == "success"){
+//                            self.performSegue(withIdentifier:"mapSegue", sender: self)
+//                        }
+                        
+                        
+                }
             }
+            
         }
-    }
-    
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
     }
     
     
